@@ -12,7 +12,7 @@ define Package/mypackage
   SECTION:=utils
   CATEGORY:=Utilities
   TITLE:=My First OPKG Package
-  MAINTAINER:=Your Name <you@example.com>
+  MAINTAINER:=Tester <tester@example.com>
 endef
 
 define Package/mypackage/install
@@ -20,10 +20,16 @@ define Package/mypackage/install
 	$(INSTALL_BIN) ./files/usr/bin/hello.sh $(1)/usr/bin/hello.sh
 endef
 
-# Optional: include postinst script
 define Package/mypackage/postinst
 #!/bin/sh
 echo "Post-install: hello.sh has been installed!"
+endef
+
+define Package/mypackage/postrm
+#!/bin/sh
+echo "Post-remove: mypackage has been uninstalled!"
+echo "Goodbye from hello.sh!"
+exit 0
 endef
 
 $(eval $(call BuildPackage,mypackage))
