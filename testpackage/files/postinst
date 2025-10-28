@@ -1,7 +1,2 @@
 #!/bin/sh
 echo "Post-install script running..."
-In the Makefile, you can reference it like this:
-define Package/mypackage/postinst
-#!/bin/sh
-$(cat files/postinst)
-endef
