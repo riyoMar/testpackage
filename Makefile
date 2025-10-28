@@ -15,6 +15,10 @@ define Package/testpackage
   MAINTAINER:=Tester <tester@example.com>
 endef
 
+define Build/Compile
+    # nothing to compile
+endef
+
 define Package/testpackage/install
 	$(INSTALL_DIR) $(1)/usr/bin
 	$(INSTALL_BIN) ./files/usr/bin/hello.sh $(1)/usr/bin/hello.sh
